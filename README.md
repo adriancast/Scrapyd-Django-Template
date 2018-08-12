@@ -37,3 +37,5 @@ curl http://localhost:6800/schedule.json -d project=default -d spider=toscrape-c
 ````
 
 The crawled data will be automatically be saved in the Django models
+
+This repo is inspired by an article from Ali Oğuzhan Yıldız, https://medium.com/@ali_oguzhan/how-to-use-scrapy-with-django-application-c16fabd0e62e
