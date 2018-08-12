@@ -1,0 +1,6 @@
+Django==2.0
+python-scrapyd-api==2.1.2
+requests==2.18.4
+Scrapy==1.5.1
+scrapy-djangoitem==1.1.1
+scrapyd==1.2.0
