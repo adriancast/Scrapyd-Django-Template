@@ -1,0 +1,30 @@
+version: '3'
+services:
+  ###
+  # services
+  ###
+  django:
+    build: .
+    command: python manage.py runserver 0.0.0.0:3001
+    volumes:
+        - .:/app
+    ports:
+        - "3001:3001"
+    tty: true
+    stdin_open: true
+    dns:
+     - 8.8.8.8
+
+  scrapyd:
+    build: .
+    command: bash -c "cd /app/scrapy_app && scrapyd"
+    volumes:
+        - .:/app
+    ports:
+        - "6800:6800"
+    #depends_on:
+    #  - django
+    tty: true
+    stdin_open: true
+    dns:
+        - 8.8.8.8
