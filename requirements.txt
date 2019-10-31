@@ -1,4 +1,4 @@
-Django==2.0
+Django==2.0.12
 python-scrapyd-api==2.1.2
 requests==2.18.4
 Scrapy==1.5.1
