@@ -1,3 +1,4 @@
 db.*
 dbs/
 logs/
+*.pyc

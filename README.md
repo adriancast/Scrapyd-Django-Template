@@ -31,6 +31,24 @@ $ cd scrapy_app
 $ scrapyd
 ````
 
+## Setup by Docker 
+1 - Build application
+````
+$ docker-compose build
+````
+2 - Configure database and create super user  
+````
+$ docker-compose run django bash -c "python manage.py migrate && python manage.py createsuperuser"
+````
+3 - Start application
+````
+$ docker-compose up
+````
+
+Django is running on: http://localhost:3001
+Scrapyd is running on: http://localhost:6800
+
+
 At this point you will be able to send job request to Scrapyd. This project is setup with a demo spider from the oficial tutorial of scrapy. To run it you must send a http request to Scrapyd with the job info
 ````
 curl http://localhost:6800/schedule.json -d project=default -d spider=toscrape-css
