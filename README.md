@@ -18,6 +18,11 @@ $ pip install -r requirements.txt
 ````
 $ python manage.py migrate
 ````
+3 - Create superuser to login in the django admin
+````
+$ python manage.py createsuperuser
+````
+
 ## Start the project
 In order to start this project you will need to have running Django and Scrapyd at the same time.
 
@@ -31,29 +36,16 @@ $ cd scrapy_app
 $ scrapyd
 ````
 
-## Setup by Docker 
-1 - Build application
-````
-$ docker-compose build
-````
-2 - Configure database and create super user  
-````
-$ docker-compose run django bash -c "python manage.py migrate && python manage.py createsuperuser"
-````
-3 - Start application
-````
-$ docker-compose up
-````
-
-Django is running on: http://localhost:3001
-Scrapyd is running on: http://localhost:6800
+## Demo
+Django is running on: http://127.0.0.1:8000
+Scrapyd is running on: http://0.0.0.0:6800
 
 
 At this point you will be able to send job request to Scrapyd. This project is setup with a demo spider from the oficial tutorial of scrapy. To run it you must send a http request to Scrapyd with the job info
 ````
-curl http://localhost:6800/schedule.json -d project=default -d spider=toscrape-css
+curl http://127.0.0.1:6800/schedule.json -d project=default -d spider=toscrape-css
 ````
 
-The crawled data will be automatically be saved in the Django models
+Now go to http://127.0.0.1:8000/admin and login using the superuser you created before. The crawled data will be automatically be saved in the Django models.
 
 This repo is inspired by an article from Ali Oğuzhan Yıldız, https://medium.com/@ali_oguzhan/how-to-use-scrapy-with-django-application-c16fabd0e62e
