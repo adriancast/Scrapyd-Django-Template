@@ -1,4 +1,4 @@
-FROM python:3.11.0-stretch
+FROM python:3.10
 WORKDIR /app
 COPY . .
 RUN pip install -r requirements.txt
