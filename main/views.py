@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from scrapyd_api import ScrapydAPI
 from main.utils import URLUtil
-from main.models import ScrapyItem
+from main.models import Quote
 
 # connect scrapyd service
 scrapyd = ScrapydAPI('http://localhost:6800')
@@ -80,7 +80,7 @@ def crawl(request):
         if status == 'finished':
             try:
                 # this is the unique_id that we created even before crawling started.
-                item = ScrapyItem.objects.get(unique_id=unique_id)
+                item = Quote.objects.get(unique_id=unique_id)
                 return JsonResponse({'data': item.to_dict['data']})
             except Exception as e:
                 return JsonResponse({'error': str(e)})
